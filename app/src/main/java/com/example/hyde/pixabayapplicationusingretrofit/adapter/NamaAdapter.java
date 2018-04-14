@@ -37,14 +37,13 @@ public class NamaAdapter extends RecyclerView.Adapter<NamaAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-
+        // Menampilkan String
         holder.like.setText("by "+myData.get(position).user);
 
+        // Menampilkan gambar
         Glide.with(activity).load(myData.get(position).webformatURL)
                 .into(holder.imageView);
 
-      //  Glide.with(activ).load(myData.get(position).webformatURL)
-      //          .into(holder.imageView);
     }
 
     @Override

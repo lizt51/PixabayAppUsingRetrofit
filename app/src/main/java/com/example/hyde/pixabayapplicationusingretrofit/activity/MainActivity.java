@@ -27,20 +27,20 @@ public class MainActivity extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.na);
         img3 = (ImageView) findViewById(R.id.anim);
         img4 = (ImageView) findViewById(R.id.natu);
-        edit = (EditText)findViewById(R.id.sear);
+        edit = (EditText) findViewById(R.id.sear);
         text = (TextView) findViewById(R.id.go);
 
-
+        // Untuk TextView Go
         text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this, Recyc.class);
-                myIntent.putExtra("q",""+edit.getText().toString());
+                myIntent.putExtra("q", "" + edit.getText().toString());
                 startActivity(myIntent);
             }
         });
 
-
+        // untuk gambar 1
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        // untuk gambar 2
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        // untuk gambar 3
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        // untuk gambar 4
         img4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

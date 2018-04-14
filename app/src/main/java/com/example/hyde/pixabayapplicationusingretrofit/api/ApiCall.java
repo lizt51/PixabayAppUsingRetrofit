@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiCall {
+    //menentukan Base API
     public static final String BASE_URL = "https://pixabay.com/api/";
     private static Retrofit retrofit = null;
 

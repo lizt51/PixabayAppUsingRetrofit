@@ -21,7 +21,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class Recyc extends AppCompatActivity {
-    String firstKeyName, secondKeyName, s;
     private TextView textView;
     private RecyclerView recyclerView;
     private NamaAdapter adapter;
@@ -37,11 +36,10 @@ public class Recyc extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.rec);
-//        getData();
         textView = (TextView)findViewById(R.id.titlez);
         view = (ImageView) findViewById(R.id.flow);
 
-
+        // Mengambil String dari Intent
         Intent myIntent = getIntent();
         pertama = myIntent.getStringExtra("q");
         kedua = myIntent.getStringExtra("type");
