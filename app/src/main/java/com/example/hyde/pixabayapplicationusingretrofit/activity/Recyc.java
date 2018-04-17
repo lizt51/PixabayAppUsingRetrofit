@@ -2,20 +2,26 @@ package com.example.hyde.pixabayapplicationusingretrofit.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.hyde.pixabayapplicationusingretrofit.R;
 import com.example.hyde.pixabayapplicationusingretrofit.adapter.NamaAdapter;
 import com.example.hyde.pixabayapplicationusingretrofit.api.ApiCall;
 import com.example.hyde.pixabayapplicationusingretrofit.api.ApiInterface;
 import com.example.hyde.pixabayapplicationusingretrofit.models.HitsItem;
 import com.example.hyde.pixabayapplicationusingretrofit.models.ResponseHits;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +43,7 @@ public class Recyc extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rec);
         textView = (TextView)findViewById(R.id.titlez);
-        view = (ImageView) findViewById(R.id.flow);
+        view = (ImageView) findViewById(R.id.img);
 
         // Mengambil String dari Intent
         Intent myIntent = getIntent();
@@ -46,7 +52,11 @@ public class Recyc extends AppCompatActivity {
 
         textView.setText("Image of "+pertama);
         setRecycler("");
+
+
     }
+
+
 
     public void setRecycler(String s) {
 
@@ -82,5 +92,20 @@ public class Recyc extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void onItemClick(HitsItem myData) {
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.popup_window, null);
+
+        ImageView image = (ImageView) dialogView.findViewById(R.id.tv);
+
+
+        Glide.with(this).load(myData.webformatURL)
+                .into(image);
+        ad.setView(dialogView);
+        AlertDialog alertDialog=ad.create();
+        alertDialog.show();
     }
 }
